@@ -1,5 +1,6 @@
 /* Basic CSS for HTML Template */
 body {
+    background-color: beige;
     font-family: Arial, sans-serif;
     margin: 20px;
 }
