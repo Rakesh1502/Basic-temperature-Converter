@@ -1,0 +1,17 @@
+/* Basic CSS for HTML Template */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+.converter {
+    max-width: 300px;
+    margin: auto;
+}
+.converter input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+
