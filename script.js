@@ -1,29 +1,47 @@
-const kelv = document.getElementById("kelvin");
-const cels = document.getElementById("celsius");
-const fahr = document.getElementById("fahrenheit");
+const buttons = document.querySelectorAll("button");
+
+const resultEl = document.getElementById("result");
+
+const playerScoreEl = document.getElementById("player-score");
+
+const computerScoreEl = document.getElementById("computer-score");
 
 
-function calcTemp(event){
-    const inputTemp = +event.target.value;
 
-    switch(event.target.name){
-        case "celsius":
-            kelv.value = (inputTemp + 273.15).toFixed(2);
-            fahr.value = (inputTemp*(9/5)+32).toFixed(2);
-            break;
+let playerScore = 0;
+let computerScore = 0;
 
-        case "fahrenheit":
-            cels.value = ((inputTemp - 32) / 1.8).toFixed(2);
-            kelv.value = ((inputTemp - 32) / 1.8 + 273.15).toFixed(2);
-            break;
 
-        case "kelvin":
-            cels.value = (inputTemp - 273.15).toFixed(2);
-            fahr.value = ((inputTemp - 273.15) * 1.8 + 32).toFixed(2);
-            break;
+buttons.forEach((button) => {
+    button.addEventListener("click", () =>{
+        const result = playGame(button.id, computerPlay());
+        resultEl.textContent = result;
+    });
+});
 
-        default:
-            break;
 
+function computerPlay() {
+    const choices = ["rock", "paper", "scissors"];
+    const randomChoice = Math.floor(Math.random() * choices.length);
+    return choices[randomChoice];
+}
+
+function playGame(userSelection , computerSelection){
+    if(userSelection === computerSelection){
+        return "Hey its a Tie"
+    }
+    else if (
+        (userSelection ==="rock" && computerSelection ==="paper") || 
+        (userSelection ==="paper" && computerSelection ==="scissors") ||
+        (userSelection ==="scissors" && computerSelection ==="rock")) {
+            playerScore++;
+            playerScoreEl.textContent = playerScore;
+            return "You win " + userSelection + " beats " + computerSelection;
+
+    }
+    else{
+        computerScore++;
+        computerScoreEl.textContent = computerScore;
+        return "You Lose " + computerSelection + "beats " + userSelection;
     }
 }

@@ -2,24 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temperature Converter</title>
+    <title>Rock Paper Scissors Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="converter">
-        <h1>Temperature Converter</h1>
-        <label for="celsius">Celsius:</label>
-        <input type="number" id="celsius" name="celsius" oninput="calcTemp(event)" />
-
-        <label for="fahrenheit">Fahrenheit:</label>
-        <input type="number" id="fahrenheit" name="fahrenheit" oninput="calcTemp(event)" />
-
-        <label for="kelvin">Kelvin:</label>
-        <input type="number" id="kelvin" name="kelvin" oninput="calcTemp(event)" />
+    <h1>Rock Paper Scissors Game</h1>
+    <p>Choose your move:</p>
+    <div class="buttons">
+        <button id="rock">&#x1F44A;</button>
+        <button id="paper">&#x1f590;</button>
+        <button id="scissors">&#x270c;</button>
     </div>
-
+    <p id="result"></p>
+    <p id="scores">
+        Your score: <span id="player-score">0</span>
+        Computer score: <span id="computer-score">0</span>
+    </p>
     <script src="script.js"></script>
 </body>
 </html>
-
